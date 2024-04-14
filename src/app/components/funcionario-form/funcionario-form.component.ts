@@ -1,4 +1,4 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output, Input } from '@angular/core';
 import {
   FormControl,
   FormGroup,
@@ -8,16 +8,31 @@ import {
 } from '@angular/forms';
 import { RouterLink } from '@angular/router';
 import { Funcionario } from '../../models/Funcionarios';
+import { MatButtonModule } from '@angular/material/button';
+import { MatCardModule } from '@angular/material/card';
+import { MatInputModule } from '@angular/material/input';
+import { MatSelectModule } from '@angular/material/select';
 
 @Component({
   selector: 'app-funcionario-form',
   standalone: true,
-  imports: [RouterLink, FormsModule, ReactiveFormsModule],
+  imports: [
+    RouterLink,
+    FormsModule,
+    ReactiveFormsModule,
+    MatButtonModule,
+    MatCardModule,
+    MatInputModule,
+    MatSelectModule,
+  ],
   templateUrl: './funcionario-form.component.html',
   styleUrl: './funcionario-form.component.css',
 })
 export class FuncionarioFormComponent implements OnInit {
   @Output() onSubmit = new EventEmitter<Funcionario>();
+  @Input() btnAcao!: string;
+  @Input() btnTitulo!: string;
+  @Input() dadosFuncionario: Funcionario | null = null;
 
   funcionarioForm!: FormGroup;
 
@@ -25,13 +40,30 @@ export class FuncionarioFormComponent implements OnInit {
 
   ngOnInit(): void {
     this.funcionarioForm = new FormGroup({
-      id: new FormControl(0),
-      name: new FormControl('', [Validators.required]),
-      sobrenome: new FormControl('', [Validators.required]),
-      idade: new FormControl('', [Validators.required]),
-      departamento: new FormControl('', [Validators.required]),
-      turno: new FormControl('', [Validators.required]),
-      ativo: new FormControl(true),
+      id: new FormControl(this.dadosFuncionario ? this.dadosFuncionario.id : 0),
+      name: new FormControl(
+        this.dadosFuncionario ? this.dadosFuncionario.name : '',
+        [Validators.required]
+      ),
+      sobrenome: new FormControl(
+        this.dadosFuncionario ? this.dadosFuncionario.sobrenome : '',
+        [Validators.required]
+      ),
+      idade: new FormControl(
+        this.dadosFuncionario ? this.dadosFuncionario.idade : '',
+        [Validators.required]
+      ),
+      departamento: new FormControl(
+        this.dadosFuncionario ? this.dadosFuncionario.departamento : '',
+        [Validators.required]
+      ),
+      turno: new FormControl(
+        this.dadosFuncionario ? this.dadosFuncionario.turno : '',
+        [Validators.required]
+      ),
+      ativo: new FormControl(
+        this.dadosFuncionario ? this.dadosFuncionario.ativo : true
+      ),
       dataDeCriacao: new FormControl(new Date()),
       dataDeAlteracao: new FormControl(new Date()),
     });
