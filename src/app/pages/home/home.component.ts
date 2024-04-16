@@ -3,11 +3,25 @@ import { Component, OnInit } from '@angular/core';
 import { FuncionarioService } from '../../services/funcionario.service';
 import { NgFor, NgIf } from '@angular/common';
 import { RouterLink } from '@angular/router';
+import { MatTableModule } from '@angular/material/table';
+import { MatCardModule } from '@angular/material/card';
+import { MatButtonModule } from '@angular/material/button';
+import { MatInputModule } from '@angular/material/input';
+import { MatDialog } from '@angular/material/dialog';
+import { ExcluirComponent } from '../../components/excluir/excluir.component';
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [NgFor, NgIf, RouterLink],
+  imports: [
+    NgFor,
+    NgIf,
+    RouterLink,
+    MatTableModule,
+    MatCardModule,
+    MatButtonModule,
+    MatInputModule,
+  ],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css',
 })
@@ -15,7 +29,20 @@ export class HomeComponent implements OnInit {
   funcionarios: Funcionario[] = [];
   funcionarioGeral: Funcionario[] = [];
 
-  constructor(private funcioarioService: FuncionarioService) {}
+  colunas = [
+    'Situacao',
+    'Nome',
+    'Sobrenome',
+    'Idade',
+    'Departamento',
+    'Ações',
+    'Exlcuir',
+  ];
+
+  constructor(
+    private funcioarioService: FuncionarioService,
+    public dialog: MatDialog
+  ) {}
 
   ngOnInit(): void {
     this.funcioarioService.GetFuncionario().subscribe((data) => {
@@ -41,6 +68,20 @@ export class HomeComponent implements OnInit {
 
     this.funcionarios = this.funcionarioGeral.filter((funcionario) => {
       return funcionario.name.toLowerCase().includes(value);
+    });
+  }
+
+  OpenDialog(
+    id: number,
+    enterAnimationDuration: string,
+    exitAnimationDuration: string
+  ) {
+    this.dialog.open(ExcluirComponent, {
+      enterAnimationDuration,
+      exitAnimationDuration,
+      data: {
+        id: id,
+      },
     });
   }
 }

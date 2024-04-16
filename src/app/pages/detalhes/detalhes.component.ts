@@ -38,7 +38,6 @@ export class DetalhesComponent implements OnInit {
       ).toLocaleDateString('pt-BR');
 
       this.funcionario = data.dados;
-      console.log(this.funcionario);
     });
   }
 

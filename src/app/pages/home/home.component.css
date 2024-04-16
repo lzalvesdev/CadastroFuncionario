@@ -1,0 +1,14 @@
+.funcionário-box {
+  width: 100%;
+  gap: 15px;
+  flex-direction: column;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: left;
+  margin-bottom: 2rem;
+}
+
+.tabela button {
+  margin-top: 1em;
+  margin-bottom: 1em;
+}
