@@ -6,7 +6,7 @@ Este repositório contém uma aplicação Angular que consome uma API desenvolvi
 
 A API oferece funcionalidades para realizar operações CRUD (Create, Read, Update, Delete) em relação aos funcionários, incluindo métodos como GET, POST, PUT, DELETE, GET (busca por ID) e PUT (Inativar funcionário).
 
-👨‍💼 **Acesse a API [aqui](https://webapifuncionarios.azurewebsites.net/swagger/).**
+👨‍💼 **Acesse a API [aqui](https://github.com/lzalvesdev/WebAPI_Funcionarios).**
 
 ## 💻 Tecnologias Utilizadas
 
