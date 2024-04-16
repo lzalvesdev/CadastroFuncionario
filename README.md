@@ -25,5 +25,6 @@ A aplicação Angular consome a API de Gerenciamento de Funcionários e oferece 
 - Exclusão de funcionários do sistema ❌
 - Busca de funcionários por nome 🔍
 
-Por favor, aguarde que o projeto carregue os nomes na tabela para acessar todas as funcionalidades do site.
+Por favor, aguarde que o projeto carregue os nomes na tabela para acessar todas as funcionalidades do site, pois demora para acessar o banco no Azure devido ser o plano gratuito. 😀
+</br> 
 **Você pode acessar a aplicação completa 👉[aqui](https://cadastro-funcionario-ashen.vercel.app/).**
