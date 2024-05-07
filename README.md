@@ -6,7 +6,8 @@ Este repositório contém uma aplicação Angular que consome uma API desenvolvi
 
 A API oferece funcionalidades para realizar operações CRUD (Create, Read, Update, Delete) em relação aos funcionários, incluindo métodos como GET, POST, PUT, DELETE, GET (busca por ID) e PUT (Inativar funcionário).
 
-📚 **No momento desativado devivo a cota do azure**
+
+**Você pode acessar a API 👉[aqui](https://cadastro-funcionario-ashen.vercel.app/).**
 
 ## 💻 Tecnologias Utilizadas
 
@@ -27,4 +28,4 @@ A aplicação Angular consome a API de Gerenciamento de Funcionários e oferece 
 
 Por favor, aguarde que o projeto carregue os nomes na tabela para acessar todas as funcionalidades do site, pois demora para acessar o banco no Azure devido ser o plano gratuito. 😀
 </br> 
-**Você pode acessar a aplicação completa 👉[aqui](https://cadastro-funcionario-ashen.vercel.app/).**
+**Não é possivel acessar a aplicação no momento, desativado devivo a cota do azure**.
